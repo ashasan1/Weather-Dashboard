@@ -29,6 +29,11 @@ function getCityWeather(cityName) {
 
     .then(function (data) {
         console.log(data)
+        
+    var currentDate = new Date(data.dt*1000);
+    console.log(currentDate);
+
     })
 
+    
 }
