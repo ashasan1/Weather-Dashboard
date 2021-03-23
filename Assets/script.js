@@ -8,24 +8,31 @@ var currentCity = document.querySelector("#currentCity");
 
 
 
-searchBtn.addEventListener("click", getCityName);
+searchBtn.addEventListener("click", getCityWeather);
 
-function getCityName() {
-    var cityName = cityInput.value;
-    console.log(cityName);
-    currentCity.textContent = cityName;
+// function getCityName() {
+//     var cityName = cityInput.value;
+//     console.log(cityName);
+//     currentCity.textContent = cityName;
 
-}
+// }
 
 var APIKey = "43d8cb855d9885bc04142f8adeb51405";
 
 function getCityWeather(cityName) {
+
+    var cityName = cityInput.value;
+    console.log(cityName);
+    currentCity.textContent = cityName;
+
+
+
     var apiUrl = "https://pro.openweathermap.org/data/2.5/forecast/hourly?q={city name}&appid={API key}";
     var apiUrl2 = "https://pro.openweathermap.org/data/2.5/forecast/hourly?q={atlanta}&appid=" + APIKey;
     var apiUrl3 = "https://pro.openweathermap.org/data/2.5/forecast/hourly?q=atlanta&appid=" + APIKey;
     var apiUrl4 = "https://pro.openweathermap.org/data/2.5/forecast/hourly?q={atlanta}&appid={" + APIKey + "}";
 
-    var apiUrl5 = "http://api.openweathermap.org/data/2.5/weather?q=Atlanta&APPID=" + APIKey;
+    var apiUrl5 = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&APPID=" + APIKey;
 
     fetch(apiUrl5)
     .then(function (response) {
