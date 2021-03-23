@@ -1,7 +1,9 @@
 console.log("script is linked");
 
 var cityInput = document.querySelector("#cityname");
-var searchBtn = document.querySelector("#searchButton")
+var searchBtn = document.querySelector("#searchButton");
+var date = document.querySelector("#currentDate");
+
 
 
 
@@ -33,10 +35,18 @@ function getCityWeather(cityName) {
     var currentDate = new Date(data.dt*1000);
     console.log(currentDate);
 
-    var month = currentDate.getMonth();
+    var day = currentDate.getDate();
+    var month = currentDate.getMonth() + 1;
     var year = currentDate.getFullYear();
-
     
+    console.log(day);
+    console.log(month);
+    console.log(year);
+
+    date.innerHTML = "(" + month + "/" + day + "/" + year + ")";
+
+
+
 
     })
 
