@@ -4,6 +4,7 @@ var cityInput = document.querySelector("#cityname");
 var searchBtn = document.querySelector("#searchButton");
 var date = document.querySelector("#currentDate");
 var currentCity = document.querySelector("#currentCity");
+var tempSpot = document.querySelector("#temperature")
 
 
 
@@ -59,8 +60,13 @@ function getCityWeather(cityName) {
 
     var kTemp = (data.main.temp);
 
-    // var fTemp = Math.floor((kTemp − 273.15) *1.8 + 32);
+    var fTemp = Math.floor((kTemp- 273.15) *1.8 + 32);
     console.log(fTemp);
+
+    tempSpot.textContent = "Temperature:" + " " + fTemp;
+
+
+
 
 
 
