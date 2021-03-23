@@ -33,6 +33,11 @@ function getCityWeather(cityName) {
     var currentDate = new Date(data.dt*1000);
     console.log(currentDate);
 
+    var month = currentDate.getMonth();
+    var year = currentDate.getFullYear();
+
+    
+
     })
 
     
