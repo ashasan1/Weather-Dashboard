@@ -4,7 +4,9 @@ var cityInput = document.querySelector("#cityname");
 var searchBtn = document.querySelector("#searchButton");
 var date = document.querySelector("#currentDate");
 var currentCity = document.querySelector("#currentCity");
-var tempSpot = document.querySelector("#temperature")
+var tempSpot = document.querySelector("#temperature");
+var humidSpot = document.querySelector("#humidity");
+var windSpot = document.querySelector("#windspeed");
 
 
 
@@ -27,11 +29,10 @@ function getCityWeather(cityName) {
     currentCity.textContent = cityName;
 
 
-
-    var apiUrl = "https://pro.openweathermap.org/data/2.5/forecast/hourly?q={city name}&appid={API key}";
-    var apiUrl2 = "https://pro.openweathermap.org/data/2.5/forecast/hourly?q={atlanta}&appid=" + APIKey;
-    var apiUrl3 = "https://pro.openweathermap.org/data/2.5/forecast/hourly?q=atlanta&appid=" + APIKey;
-    var apiUrl4 = "https://pro.openweathermap.org/data/2.5/forecast/hourly?q={atlanta}&appid={" + APIKey + "}";
+    // var apiUrl = "https://pro.openweathermap.org/data/2.5/forecast/hourly?q={city name}&appid={API key}";
+    // var apiUrl2 = "https://pro.openweathermap.org/data/2.5/forecast/hourly?q={atlanta}&appid=" + APIKey;
+    // var apiUrl3 = "https://pro.openweathermap.org/data/2.5/forecast/hourly?q=atlanta&appid=" + APIKey;
+    // var apiUrl4 = "https://pro.openweathermap.org/data/2.5/forecast/hourly?q={atlanta}&appid={" + APIKey + "}";
 
     var apiUrl5 = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&APPID=" + APIKey;
 
@@ -63,7 +64,22 @@ function getCityWeather(cityName) {
     var fTemp = Math.floor((kTemp- 273.15) *1.8 + 32);
     console.log(fTemp);
 
-    tempSpot.textContent = "Temperature:" + " " + fTemp;
+    tempSpot.textContent = "Temperature:" + " " + fTemp + "F"; 
+    
+    console.log(data.main.humidity);
+    var humidity = (data.main.humidity);
+    humidSpot.textContent = "Humidity:" + " " + humidity + "%";
+
+    var wind = (data.wind.speed);
+    windSpot.textContent = "Wind Speed:" + " " + wind + " " + "MPH"
+
+
+
+
+
+
+
+
 
 
 
