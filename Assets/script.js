@@ -55,6 +55,14 @@ function getCityWeather(cityName) {
 
     date.innerHTML = "(" + month + "/" + day + "/" + year + ")";
 
+    console.log(data.main.temp);
+
+    var kTemp = (data.main.temp);
+
+    // var fTemp = Math.floor((kTemp − 273.15) *1.8 + 32);
+    console.log(fTemp);
+
+
 
 
 
@@ -62,4 +70,12 @@ function getCityWeather(cityName) {
     })
 
     
+}
+
+function convertTemp() {
+    var kTemp = 293.03;
+    var fTemp = Math.floor((kTemp- 273.15) *1.8 + 32);
+    console.log(fTemp);
+   
+
 }
