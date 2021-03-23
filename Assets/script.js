@@ -3,6 +3,7 @@ console.log("script is linked");
 var cityInput = document.querySelector("#cityname");
 var searchBtn = document.querySelector("#searchButton");
 var date = document.querySelector("#currentDate");
+var currentCity = document.querySelector("#currentCity");
 
 
 
@@ -12,6 +13,8 @@ searchBtn.addEventListener("click", getCityName);
 function getCityName() {
     var cityName = cityInput.value;
     console.log(cityName);
+    currentCity.textContent = cityName;
+
 }
 
 var APIKey = "43d8cb855d9885bc04142f8adeb51405";
@@ -44,6 +47,7 @@ function getCityWeather(cityName) {
     console.log(year);
 
     date.innerHTML = "(" + month + "/" + day + "/" + year + ")";
+
 
 
 
