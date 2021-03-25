@@ -73,6 +73,12 @@ function getCityWeather(cityName) {
     var wind = (data.wind.speed);
     windSpot.textContent = "Wind Speed:" + " " + wind + " " + "MPH"
 
+    var latitude = (data.coord.lat);
+    var longitude = (data.coord.lon);
+
+    console.log(latitude);
+    console.log(longitude);
+
 
 
 
