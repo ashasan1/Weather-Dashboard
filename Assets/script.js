@@ -79,23 +79,24 @@ function getCityWeather(cityName) {
     console.log(latitude);
     console.log(longitude);
 
+    var uvUrl = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIKey + "&cnt=1";
 
+    //get weekly forecast
 
+    var hourly = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude +"&exclude=minutely&appid=" + APIKey;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    fetch(hourly)
+    .then(function (response) {
+        return response.json();
     })
+
+    .then(function (data) {
+        console.log(data)
+    })
+
+    
+
+    });
 
     
 }
