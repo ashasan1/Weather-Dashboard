@@ -8,6 +8,15 @@ var tempSpot = document.querySelector("#temperature");
 var humidSpot = document.querySelector("#humidity");
 var windSpot = document.querySelector("#windspeed");
 var forecastSpot = document.querySelectorAll(".forecast");
+var historySpot = document.querySelectorAll(".history");
+
+var lastSearch = localStorage.getItem("Last City Search");
+historySpot[0].textContent = lastSearch;
+
+for (var i = 0; i < forecastSpot.length; i++) {
+    forecastSpot[i].setAttribute("style", "display:none");
+}
+
 
 
 
@@ -107,6 +116,10 @@ function getCityWeather(cityName) {
     // }
 
     // })
+    for (var i = 0; i < forecastSpot.length; i++) {
+        forecastSpot[i].setAttribute("style", "display: block");
+    }
+    
 
     let cityId = (data.id);
     console.log(cityId);
@@ -145,6 +158,14 @@ function getCityWeather(cityName) {
             forecastSpot[i].append(forecastHumid);
             
         }
+
+        lastCity = document.querySelector("#cityname").value;
+        localStorage.setItem("Last City Search", lastCity);
+
+    
+        var lastSearch = localStorage.getItem("Last City Search");
+        historySpot[0].textContent = lastSearch;
+    
 
 
     })
