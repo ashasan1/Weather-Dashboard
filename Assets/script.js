@@ -138,7 +138,7 @@ function getCityWeather(cityName) {
             var forecastIn = i*8 + 4;
             var forecastDate = new Date(data.list[forecastIn].dt *1000);
             var forecastDay = forecastDate.getDate();
-            var forecastMonth = forecastDate.getMonth();
+            var forecastMonth = forecastDate.getMonth() + 1;
             var forecastYear = forecastDate.getFullYear();
             console.log(forecastDate);
             console.log(forecastDay);
