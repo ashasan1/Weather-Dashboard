@@ -7,6 +7,7 @@ var currentCity = document.querySelector("#currentCity");
 var tempSpot = document.querySelector("#temperature");
 var humidSpot = document.querySelector("#humidity");
 var windSpot = document.querySelector("#windspeed");
+var forecastSpot = document.querySelectorAll(".forecast");
 
 
 
@@ -79,24 +80,60 @@ function getCityWeather(cityName) {
     console.log(latitude);
     console.log(longitude);
 
-    var uvUrl = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIKey + "&cnt=1";
 
-    //get weekly forecast
 
-    var hourly = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude +"&exclude=minutely&appid=" + APIKey;
+    // var uvUrl = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIKey + "&cnt=1";
 
-    fetch(hourly)
-    .then(function (response) {
+    // //get weekly forecast
+
+    // var hourly = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude +"&exclude=minutely&appid=" + APIKey;
+
+    // fetch(hourly)
+    // .then(function (response) {
+    //     return response.json();
+    // })
+
+    // .then(function (data) {
+    //     console.log(data) 
+        
+        
+    // for (var i = 0; i < 4; i++) {
+       
+    //     forecastSpot[i].innerHTML = "";
+    //     var forecastIn = i*8 + 4;
+    
+    //     var forecastDate = new Date(response.data.daily[forecastIn].dt * 1000);
+
+    // }
+
+    // })
+
+    let cityId = (data.id);
+    console.log(cityId);
+
+    var forecastUrl = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityId + "&appid=" + APIKey;
+
+    fetch(forecastUrl)
+    .then(function(response) {
         return response.json();
     })
-
     .then(function (data) {
-        console.log(data)
+        console.log(data);
+        
+        for (var i = 0; i < forecastSpot.length; i++) {
+            forecastSpot[i].innerHTML = "";
+            var forecastIn = i*8 + 4;
+            var forecastDate = new Date(data.list[forecastIn].dt *1000);
+            var forecastDay = forecastDate.getFullYear();
+            console.log(forecastDate);
+            
+        }
+
+
     })
 
-    
-
     });
+    
 
     
 }
