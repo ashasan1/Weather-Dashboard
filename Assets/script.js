@@ -124,8 +124,25 @@ function getCityWeather(cityName) {
             forecastSpot[i].innerHTML = "";
             var forecastIn = i*8 + 4;
             var forecastDate = new Date(data.list[forecastIn].dt *1000);
-            var forecastDay = forecastDate.getFullYear();
+            var forecastDay = forecastDate.getDate();
+            var forecastMonth = forecastDate.getMonth();
+            var forecastYear = forecastDate.getFullYear();
             console.log(forecastDate);
+            console.log(forecastDay);
+            var forecastDateEl = document.createElement("p");
+            forecastDateEl.textContent = "(" + forecastMonth + "/" + forecastDay + "/" + forecastYear + ")";
+            forecastSpot[i].append(forecastDateEl);
+            var forecastTemp = document.createElement("p");
+            var forKTemp = (data.list[i].main.temp);
+            console.log(forKTemp);
+            forFTemp = Math.floor((forKTemp - 273.15) *1.8 + 32)
+            console.log(forFTemp);
+            forecastTemp.textContent = "Temperature:" + " " + forFTemp;
+            forecastSpot[i].append(forecastTemp);
+            var forecastHumid = document.createElement("p");
+            var forHumidity = (data.list[i].main.humidity)
+            forecastHumid.textContent = "Humidity:" + " " + forHumidity;
+            forecastSpot[i].append(forecastHumid);
             
         }
 

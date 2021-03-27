@@ -22,8 +22,8 @@ body {
 }
 
 .forecast {
-    background-color: blue;
-    border-color: blue;
+    background-color: rgb(167,197,233);
+    border-color: rgb(167,197,233);
     border-style: solid;
     margin: 10px;
 }
