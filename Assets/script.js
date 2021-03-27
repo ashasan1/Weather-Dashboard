@@ -150,11 +150,11 @@ function getCityWeather(cityName) {
             console.log(forKTemp);
             forFTemp = Math.floor((forKTemp - 273.15) *1.8 + 32)
             console.log(forFTemp);
-            forecastTemp.textContent = "Temperature:" + " " + forFTemp;
+            forecastTemp.textContent = "Temperature:" + " " + forFTemp + "F";
             forecastSpot[i].append(forecastTemp);
             var forecastHumid = document.createElement("p");
             var forHumidity = (data.list[i].main.humidity)
-            forecastHumid.textContent = "Humidity:" + " " + forHumidity;
+            forecastHumid.textContent = "Humidity:" + " " + forHumidity + "%";
             forecastSpot[i].append(forecastHumid);
             
         }
