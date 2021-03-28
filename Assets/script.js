@@ -44,7 +44,7 @@ function getCityWeather(cityName) {
     // var apiUrl3 = "https://pro.openweathermap.org/data/2.5/forecast/hourly?q=atlanta&appid=" + APIKey;
     // var apiUrl4 = "https://pro.openweathermap.org/data/2.5/forecast/hourly?q={atlanta}&appid={" + APIKey + "}";
 
-    var apiUrl5 = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&APPID=" + APIKey;
+    var apiUrl5 = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&APPID=" + APIKey;
 
     fetch(apiUrl5)
     .then(function (response) {
